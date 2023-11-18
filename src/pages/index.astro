@@ -1,0 +1,76 @@
+---
+import Layout from '../layouts/Layout.astro'
+import BgVideo from '../components/BgVideo.astro'
+import Link from '../components/Link.astro'
+import Title from '../components/Title.astro'
+import GitHubIcon from '../components/GitHubIcon.astro'
+import LinkedInIcon from '../components/LinkedInIcon.astro'
+import PortfolioIcon from '../components/PortfolioIcon.astro'
+---
+
+<Layout title="Axell Dev | Front End developer">
+  <div
+    class="relative z-10 bg-transparent text-neutral-300 w-screen h-screen flex flex-col max-w-xl m-auto"
+  >
+    <header class="py-10">
+      <Title />
+    </header>
+    <main class="flex-grow flex flex-col justify-center gap-8 p-8">
+      <Link href="https://github.com/axelldev">
+        GitHub
+        <GitHubIcon />
+      </Link>
+      <Link href="https://www.linkedin.com/in/axell2552/">
+        LinkedIn
+        <LinkedInIcon />
+      </Link>
+      <Link href="https://axell-software-developer.netlify.app/">
+        Portfolio
+        <PortfolioIcon />
+      </Link>
+    </main>
+  </div>
+  <BgVideo />
+</Layout>
+
+<style is:global>
+  .link {
+    animation: fadeIn 0.8s ease;
+    scale: 1;
+  }
+
+  .link:nth-child(2) {
+    animation-delay: 150ms;
+  }
+
+  .link:nth-child(3) {
+    animation-delay: 300ms;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      scale: 0.5;
+      transform: translateX(-50%);
+    }
+  }
+
+  .link:hover .icon {
+    animation: bounce 0.5s ease infinite;
+  }
+
+  @keyframes bounce {
+    0% {
+      transform: translateY(0);
+      scale: 1;
+    }
+    50% {
+      transform: translateY(-5px);
+      scale: 1.1;
+    }
+    100% {
+      transform: translateY(0);
+      scale: 1;
+    }
+  }
+</style>

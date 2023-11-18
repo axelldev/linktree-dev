@@ -1,0 +1,35 @@
+---
+interface Props {
+  href: string
+}
+
+const { href } = Astro.props
+---
+
+<a
+  href={href}
+  target="_blank"
+  class="link border relative border-neutral-300/20 rounded-lg px-3 text-2xl bg-white/10 backdrop-blur-md font-light text-center py-4 overflow-hidden hover:text-neutral-950 transition-colors hover:shadow-md hover:shadow-white/20"
+>
+  <div class="flex items-center justify-center gap-3 transition-all">
+    <slot />
+  </div>
+</a>
+
+<style>
+  a::before {
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 100%;
+    background: rgba(255 255 255 / 0.6);
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 300ms;
+  }
+
+  a:hover::before {
+    width: 100%;
+  }
+</style>
